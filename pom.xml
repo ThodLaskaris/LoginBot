@@ -4,7 +4,11 @@
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
+
+    <!-- Εδώ το δικό σου groupId -->
     <groupId>com.thodlaskaris.firstLoginBot</groupId>
+
+    <!-- artifactId και version -->
     <artifactId>firstBotLogin</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -15,11 +19,44 @@
     </properties>
 
     <dependencies>
+        <!-- Selenium dependency -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.12.1</version>
         </dependency>
+
+        <!-- JUnit Jupiter API για δοκιμές -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.3</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JUnit Jupiter Engine για να τρέχουν οι δοκιμές -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.9.3</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Maven Surefire Plugin για να τρέχει τις JUnit 5 δοκιμές -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
