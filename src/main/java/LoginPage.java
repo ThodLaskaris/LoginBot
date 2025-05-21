@@ -28,6 +28,8 @@ public class LoginPage {
     }
 
     public String getFlashMsg() {
-        return dr.findElement(flashMsg).getText();
+        String rawMsg = dr.findElement(flashMsg).getText();
+        return rawMsg.replaceAll("[×?,]", "").trim();
     }
+
 }
